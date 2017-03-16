@@ -1,0 +1,39 @@
+.data
+SYSREAD = 0
+SYSWRITE = 1
+SYSEXIT = 60
+STDOUT = 1
+STDIN = 0
+EXIT_SUCCESS = 0
+BUFLEN = 512
+KEY = -2
+
+.bss
+.comm txtin, 512
+.comm txtout, 512
+
+.text
+.globl _start
+_start:
+movq $SYSREAD, %rax
+movq $STDIN, %rdi
+movq $txtin, %rsi
+movq $BUFLEN, %rdx
+syscall
+
+dec %rax
+movl $0, %edi
+
+
+
+
+movq $SYSWRITE, %rax
+movq $STDOUT, %rdi
+movq $txtout, %rsi
+movq $BUFLEN, %rdx
+syscall
+
+
+movq $SYSEXIT, %rax
+movq $EXIT_SUCCESS, %rdi
+syscall
