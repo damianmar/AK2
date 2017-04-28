@@ -12,8 +12,8 @@ flo_point: .ascii "%f",
 .comm bool1, 8
  
 .text
-.globl _main
-_main:
+.globl _start
+_start:
 
 mov $0, %rax
 mov $dec_int, %rdi
@@ -25,10 +25,10 @@ mov $flo_point, %rdi
 mov $numb2, %rsi
 call scanf
 
-mov $0, %rax
-mov $dec_int, %rdi
-mov $bool1, %rsi
-call scanf
+#mov $0, %rax
+#mov $dec_int, %rdi
+#mov $bool1, %rsi
+#call scanf
 
 
 
