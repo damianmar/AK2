@@ -13,7 +13,7 @@ flo_point: .ascii "%f",
  
 .text
 .globl main
-_main:
+main:
 
 mov $0, %rax
 mov $dec_int, %rdi
