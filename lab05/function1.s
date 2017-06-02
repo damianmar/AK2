@@ -76,14 +76,14 @@ countFunction:
      q:                   #licznik pomnożony
     movq %rsi, iterator
     fldl  iterator
-    fmul %st(1)
-    fxch %st(1)
+    fmul %st(2)
+    fxch %st(2)
     fstpl justAStrangeThing
      w:                   #mianownik pomnożony
     fld %st(4)
-    fxch %st(2)
-    fmul %st(2)
-    fxch %st(2)
+    fxch %st(1)
+    fmul %st(1)
+    fxch %st(1)
     fstpl justAStrangeThing
      e:                  #wynik tmp obliczony
     fld %st(0)
@@ -93,7 +93,7 @@ countFunction:
       r:                  #dodanie tmp do wyniku
     fld %st(3)
     fadd %st(3)
-    fxch %st(4)
+    fxch %st(3)
     fstpl justAStrangeThing
 t:
 
